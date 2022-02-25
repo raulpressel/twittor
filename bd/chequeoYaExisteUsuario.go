@@ -20,6 +20,7 @@ func ChequeoYaExisteUsuario(email string) (models.Usuario, bool, string) {
 	condicion := bson.M{"email": email}
 
 	var resultado models.Usuario
+
 	err := col.FindOne(ctx, condicion).Decode(&resultado)
 	ID := resultado.ID.Hex()
 	if err != nil {
