@@ -1,6 +1,6 @@
 module github.com/raulpressel/twittor
 
-// +heroku goVersion go1.17
+// +heroku goVersion go1.17 https://github.com/heroku/heroku-buildpack-go/issues/453
 go 1.17
 
 require (
