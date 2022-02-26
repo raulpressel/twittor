@@ -7,7 +7,7 @@ import (
 
 	"github.com/raulpressel/twittor/models"
 	"go.mongodb.org/mongo-driver/bson"
-	"go.mongodb.org/mongo-driver/primitive"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
 /* BuscoPerfil busca un perfil de twittor en la BD*/
