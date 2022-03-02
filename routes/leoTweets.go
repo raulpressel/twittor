@@ -20,6 +20,7 @@ func LeoTweets(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "debe enviar el parametro pagina", http.StatusBadRequest)
 		return
 	}
+
 	pagina, err := strconv.Atoi(r.URL.Query().Get("pagina"))
 	if err != nil {
 		http.Error(w, "debe enviar el parametro pagina > 0", http.StatusBadRequest)
@@ -27,7 +28,7 @@ func LeoTweets(w http.ResponseWriter, r *http.Request) {
 	}
 
 	pag := int64(pagina)
-	respuesta, correcto := bd.LeoTweet(ID, pag)
+	respuesta, correcto := bd.LeoTweets(ID, pag)
 	if !correcto {
 		http.Error(w, "error al leer los tweets", http.StatusBadRequest)
 		return
@@ -35,4 +36,5 @@ func LeoTweets(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-type", "application/json")
 	w.WriteHeader(http.StatusCreated)
 	json.NewEncoder(w).Encode(respuesta)
+
 }
